@@ -18,3 +18,16 @@ Runner.instance_.tRex.updateJump = function (deltaTime) {
   originalUpdateJump.call(this, deltaTime);
   this.xPos = curXPos;
 }
+
+// リセット時の処理(今後更に変更を行う予定)
+Runner.instance_.tRex.reset = function () {
+  // this.xPos = this.xInitialPos;
+  this.yPos = this.groundYPos;
+  this.jumpVelocity = 0;
+  this.jumping = false;
+  this.ducking = false;
+  this.update(0, Trex.status.RUNNING);
+  this.midair = false;
+  this.speedDrop = false;
+  this.jumpCount = 0;
+}
