@@ -1,18 +1,35 @@
 
-window.addEventListener("keydown", event => {
-  const tRex = Runner.instance_.tRex;
-  const moveDistance = 5;
+let runningKey = "";
 
-  if (event.key === "ArrowLeft") {
+const moveTRex = key => {
+  const tRex = Runner.instance_.tRex;
+  const moveDistance = 2;
+
+  if (key === "ArrowLeft") {
     tRex.xPos = Math.max(0, tRex.xPos - moveDistance);
-  } else if (event.key === "ArrowRight") {
+  } else if (key === "ArrowRight") {
     const maxX = Runner.instance_.canvas.width - tRex.config.WIDTH;
     tRex.xPos = Math.min(maxX, tRex.xPos + moveDistance);
   }
+}
+
+window.addEventListener("keydown", event => {
+  if (event.key === " " || event.key === "ArrowUp") return;
+  runningKey = event.key;
 });
 
-const originalUpdateJump = Runner.instance_.tRex.updateJump;
+window.addEventListener("keyup", event => {
+  if (event.key === " " || event.key === "ArrowUp") return;
+  runningKey = "";
+})
 
+const originalUpdate = Runner.instance_.update;
+Runner.instance_.update = function () {
+  moveTRex(runningKey);
+  originalUpdate.call(this);
+}
+
+const originalUpdateJump = Runner.instance_.tRex.updateJump;
 Runner.instance_.tRex.updateJump = function (deltaTime) {
   const curXPos = this.xPos;
   originalUpdateJump.call(this, deltaTime);
