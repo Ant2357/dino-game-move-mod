@@ -3,7 +3,7 @@ let runningKey = "";
 
 const moveTRex = key => {
   const tRex = Runner.instance_.tRex;
-  const moveDistance = 2;
+  const moveDistance = 5;
 
   if (key === "ArrowLeft") {
     tRex.xPos = Math.max(0, tRex.xPos - moveDistance);
@@ -47,4 +47,9 @@ Runner.instance_.tRex.reset = function () {
   this.midair = false;
   this.speedDrop = false;
   this.jumpCount = 0;
+
+  runningKey = "";
 }
+
+Runner.instance_.loadSounds();
+Runner.instance_.gameOver();
