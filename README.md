@@ -1,5 +1,5 @@
 # dino-game-move-mod
-<video src="https://github.com/user-attachments/assets/c998a2c2-c923-4bba-bcc6-178fe4c24ca7" controls="true" muted autoplay playsinline loop></video>
+<video src="https://github.com/user-attachments/assets/087acbea-6aa7-4ef8-a77c-d28e12d11d9d" controls="true" muted autoplay playsinline loop></video>
 
 Chrome の恐竜ゲームで Dino くんに横移動を追加する MOD
 
