@@ -29,13 +29,6 @@ Runner.instance_.update = function () {
   originalUpdate.call(this);
 }
 
-const originalUpdateJump = Runner.instance_.tRex.updateJump;
-Runner.instance_.tRex.updateJump = function (deltaTime) {
-  const curXPos = this.xPos;
-  originalUpdateJump.call(this, deltaTime);
-  this.xPos = curXPos;
-}
-
 // リセット時の処理(今後更に変更を行う予定)
 Runner.instance_.tRex.reset = function () {
   // this.xPos = this.xInitialPos;
