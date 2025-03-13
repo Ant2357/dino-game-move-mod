@@ -40,8 +40,6 @@ Runner.instance_.tRex.reset = function () {
   this.midair = false;
   this.speedDrop = false;
   this.jumpCount = 0;
-
-  runningKey = "";
 }
 
 Runner.instance_.loadSounds();
