@@ -7,9 +7,11 @@ const moveTRex = key => {
 
   if (key === "ArrowLeft") {
     tRex.xPos = Math.max(0, tRex.xPos - moveDistance);
+    Runner.instance_.distanceRan -= moveDistance;
   } else if (key === "ArrowRight") {
     const maxX = Runner.instance_.canvas.width - tRex.config.WIDTH;
     tRex.xPos = Math.min(maxX, tRex.xPos + moveDistance);
+    Runner.instance_.distanceRan += moveDistance;
   }
 }
 
